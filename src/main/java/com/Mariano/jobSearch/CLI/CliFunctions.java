@@ -1,0 +1,21 @@
+package com.Mariano.jobSearch.CLI;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class CliFunctions {
+    public static Map<String, Object> toMap(CliArguments cliArguments){
+        Map<String, Object> params = new HashMap<>();
+
+        params.put("description", cliArguments.getKeyWord());
+        params.put("location", cliArguments.getLocation());
+        params.put("full_time", cliArguments.isFullTime());
+        params.put("page", cliArguments.getPage());
+
+        if(cliArguments.isMarkdown()){
+            params.put("markdown", true);
+        }
+
+        return params;
+    }
+}
